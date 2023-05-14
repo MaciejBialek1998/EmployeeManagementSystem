@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+    <changeSet id="0001-1" author="bialek">
+        <createTable tableName="employee_details">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints unique="true" nullable="false" primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR(32)"/>
+            <column name="phone_number" type="VARCHAR(9)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(16)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="0001-2" author="bialek">
+        <createTable tableName="employee">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints unique="true" nullable="false" primaryKey="true"/>
+            </column>
+            <column name="pesel" type="Varchar(11)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salary" type="decimal">
+                <constraints nullable="false"/>
+            </column>
+            <column name="position" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="details_id" type="BIGINT">
+                <constraints nullable="false" unique="true" foreignKeyName="fk_employee_employee_details" references="employee_details(id)"/>
+            </column>
+            <column name="password" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="0001-3" author="bialek">
+        <createTable tableName="employee_role">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints  primaryKey="true"/>
+            </column>
+            <column name="role" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="0001-4" author="bialek">
+        <createTable tableName="employee_roles">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints unique="true" nullable="false" primaryKey="true"/>
+            </column>
+            <column name="employee_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_employee_roles_employee" references="employee(id)"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_employee_roles_employee_role" references="employee_role(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="0001-5" author="bialek">
+        <createTable tableName="task">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints  primaryKey="true"/>
+            </column>
+            <column name="title" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="status" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deadline" type="Date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employee_id" type="BIGINT">
+                <constraints foreignKeyName="fk_task_employee" references="employee(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

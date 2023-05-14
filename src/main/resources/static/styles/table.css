@@ -1,0 +1,37 @@
+body{
+    font-family: 'Arial', sans-serif;
+}
+
+.taskTable{
+    max-width: 1200px;
+    background-color: white;
+    color: #000;
+}
+
+thead{
+    background-color: darkgray;
+}
+
+.taskTable>th,tr>*{
+    font-size: 0.8rem;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+    min-width: 125px;
+    max-width: 400px;
+    max-height: 200px;
+}
+
+.taskButton{
+    background-color: #007AFF;
+}
+
+.taskButton > *{
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}

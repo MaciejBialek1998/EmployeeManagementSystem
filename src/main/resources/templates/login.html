@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login to Management System</title>
+  <link rel="stylesheet" href="../static/styles/form.css" th:href="@{/styles/form.css}">
+
+</head>
+<body>
+
+<main>
+    <header>
+        <h2>Welcome to Employee Management System</h2>
+    </header>
+    <div th:class="formContainer">
+        <form th:action="@{/login}" method="post" class="form" style="margin: 50px auto;">
+            <p class="formTitle">Please Login</p>
+            <input type="text" name="pesel" placeholder="pesel">
+            <input type="password" name="password" placeholder="password">
+            <button type="submit" class="submitButton">Login</button>
+        </form>
+    </div>
+
+</main>
+</body>
+</html>

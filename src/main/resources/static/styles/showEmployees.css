@@ -1,0 +1,18 @@
+.modifyButton{
+    background-color: #007AFF;
+}
+
+.deleteButton{
+    background-color: red;
+}
+
+.modifyButton >*,.deleteButton > *{
+    color: white;
+}
+
+td {
+    text-align: center;
+    min-width: 80px;
+    max-width: 150px;
+    max-height: 200px;
+}

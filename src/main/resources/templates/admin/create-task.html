@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login to Management System</title>
+  <link rel="stylesheet" href="../static/styles/form.css" th:href="@{/styles/form.css}">
+  <link rel="stylesheet" href="../static/styles/menuList.css" th:href="@{/styles/menuList.css}">
+</head>
+<body>
+<main>
+  <div style="display: flex">
+    <div th:replace="~{fragments :: menuList}"></div>
+    <div style="flex: 70%">
+      <form action="#" th:action="@{create-task}" method="post" class="form"  th:object="${task}">
+        <p class="formTitle">Create task</p>
+
+        <p class="text">Title*</p>
+        <p th:errors="*{title}" class="error">Errors with Title</p>
+        <input th:field="*{title}" type="text" name="title" placeholder="title">
+        <p class="text">Description</p>
+        <input th:field="*{description}" type="text" name="description" placeholder="Description">
+        <p class="text">Deadline</p>
+        <p th:errors="*{title}" class="error">Errors with Title</p>
+        <input th:field="*{deadlineDate}" type="date" name="date">
+        <select name="employeeToTask">
+          <option th:each="employee:${employees}" th:text="|${employee.firstName} ${employee.lastName}|" th:value="${employee.id}"></option>
+        </select>
+        <button type="submit" class="submitButton">Save</button>
+        <p class="text">* Field required</p>
+      </form>
+    </div>
+  </div>
+</main>
+</body>
+</html>

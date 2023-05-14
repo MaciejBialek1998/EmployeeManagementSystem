@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<div class="menuList" th:fragment="menuList" style="flex: 30%">
+    <aside class="categories">
+        <ul>
+            <li th:if="|${#authorization.url('/show-employees')}|">
+                <a class="adminButton" href="#" th:href="@{/show-employees}">Show employees</a></li>
+            <li th:if="|${#authorization.url('/register')}|">
+                <a class="adminButton" href="#" th:href="@{/register}">Register employee</a></li>
+            <li th:if="|${#authorization.url('/create-task')}|">
+                <a class="adminButton" href="#" th:href="@{/create-task}">Create task</a></li>
+            <li th:if="|${#authorization.url('/')}|">
+                <a href="#" th:href="@{/}">Main page</a></li>
+            <li><a href="#" th:href="@{/logout}">Logout</a></li>
+
+        </ul>
+    </aside>
+</div>
+
+</body>
+</html>

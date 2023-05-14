@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/styles/menuList.css" th:href="@{/styles/menuList.css}">
+    <link rel="stylesheet" href="../static/styles/table.css" th:href="@{/styles/table.css}">
+</head>
+<body>
+<header>
+    <div style="display: flex">
+        <div style="flex: 30%">
+            <h1 th:if="${#authentication}" th:text="|Welcome ${employee.firstName}|">Welcome example user</h1>
+
+        </div>
+        <div style="flex: 70%">
+            <h1>List of tasks</h1>
+        </div>
+    </div>
+</header>
+    <main>
+        <div style="display: flex">
+            <div th:replace="~{fragments :: menuList}"></div>
+            <div style="flex: 70%">
+
+                <table border="1" class="taskTable">
+                    <thead>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Deadline</th>
+                    <th></th>
+                    </thead>
+                    <tbody>
+                    <tr th:each="task: ${tasks}">
+                        <td th:text="${task.title}"></td>
+                        <td th:text="${task.description}"></td>
+                        <td th:text="${task.status}"></td>
+                        <td th:text="${task.deadlineDate}"></td>
+                        <td class="taskButton">
+                            <a th:if="|${task.status.equals('Not started')}|" th:href="@{|/status?id=${task.id}|}" >Start task</a>
+                            <a th:if="${task.status.equals('In progress')}" th:href="@{|/status?id=${task.id}|}" >End task</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p th:if="${message}" th:text="${message}">Message</p>
+            </div>
+        </div>
+
+
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login to Management System</title>
+    <link rel="stylesheet" href="../../static/styles/form.css" th:href="@{/styles/form.css}">
+    <link rel="stylesheet" href="../../static/styles/menuList.css" th:href="@{/styles/menuList.css}">
+
+</head>
+<body>
+
+<main>
+    <div style="display: flex">
+        <div th:replace="~{fragments :: menuList}"></div>
+        <div style="flex: 70%">
+            <form action="#" th:action="@{|modify?id=${id}|}" method="post" class="form" th:object="${modifiedEmployee}">
+                <p class="formTitle">Modify employee</p>
+                <p class="text">First Name</p>
+                <p th:errors="*{firstName}" class="error">Errors with First Name</p>
+                <input th:field="*{firstName}" type="text" name="firstName" th:placeholder="*{firstName}" placeholder="First Name">
+                <p class="text">Last Name</p>
+                <p th:errors="*{lastName}" class="error">Errors with Last Name</p>
+                <input th:field="*{lastName}" type="text" name="lastName" th:placeholder="*{lastName}" placeholder="Last Name">
+                <p class="text">Salary</p>
+                <p th:errors="*{salary}" class="error">Errors with salary</p>
+                <input th:field="*{salary}" type="number" name="salary" th:placeholder="*{salary}" placeholder="Salary">
+                <p class="text">Position</p>
+                <p th:errors="*{position}" class="error">Errors with position</p>
+                <input th:field="*{position}" type="text" name="position" th:placeholder="*{position}" placeholder="position">
+                <p class="text">Email</p>
+                <p th:errors="*{email}" class="error">Errors with email</p>
+                <input th:field="*{email}" type="text" name="email" th:placeholder="*{email}" placeholder="Email">
+                <p class="text">Phone Number</p>
+                <p th:errors="*{phoneNumber}" class="error">Errors with phone number</p>
+                <input th:field="*{phoneNumber}" type="number" name="phoneNumber" th:placeholder="*{phoneNumber}" placeholder="Phone Number">
+                <p class="text">City</p>
+                <p th:errors="*{city}" class="error">Errors with city</p>
+                <input th:field="*{city}" type="text" name="city" th:placeholder="*{city}" placeholder="City">
+                <button type="submit" class="submitButton">Modify</button>
+            </form>
+        </div>
+    </div>
+
+</main>
+</body>
+</html>
