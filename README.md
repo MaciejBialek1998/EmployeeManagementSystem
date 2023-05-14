@@ -26,3 +26,8 @@ Spring boot, Hibernate, Spring data JPA, Thymeleaf, Spring security and MySQL
 To run application Java 17 is required.
 Project is still under development.
 ![Login](https://github.com/MaciejBialek1998/EmployeeManagementSystem/assets/110395812/c9c58adb-b836-483d-96db-a816c85f67db)
+![Menu](https://github.com/MaciejBialek1998/EmployeeManagementSystem/assets/110395812/02424859-61bc-4110-9ff1-cbfed58dd678)
+![employeeList](https://github.com/MaciejBialek1998/EmployeeManagementSystem/assets/110395812/14a6f027-7f5e-433f-af5f-4b661a5825c3)
+![Modify](https://github.com/MaciejBialek1998/EmployeeManagementSystem/assets/110395812/a0c41e33-9880-420e-b4b9-d3982a13c8d6)
+
+
